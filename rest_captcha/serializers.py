@@ -27,7 +27,4 @@ class RestCaptchaSerializer(serializers.Serializer):
         cache.delete(cache_key)
         if data['captcha_value'].upper() != real_value:
             raise serializers.ValidationError(_('Invalid captcha value'))
-
-        del data['captcha_key']
-        del data['captcha_value']
         return data
